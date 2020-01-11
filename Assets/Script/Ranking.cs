@@ -36,8 +36,8 @@ public class Ranking : MonoBehaviour
         int count = 1;
         for (; count < max; count++)
         {
-            string n = "name";
-            label.text += (count + ":" + n + "\n").ToString();
+            string playerName = "name";
+            label.text += (count + ":" + playerName + "\n").ToString();
         }
         Rankupdate = true; 
     }

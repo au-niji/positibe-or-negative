@@ -28,7 +28,6 @@ public class Clear : MonoBehaviour
     [SerializeField]
     private ScoreCount scoreCount = default;
 
-    //タイマーの値をラベルに表示する。
     //ランキングを取得し、順位を表示する。
 
     public void OnEnable() 
@@ -42,7 +41,7 @@ public class Clear : MonoBehaviour
 
     IEnumerator InitClearData()
     {
-        //タイマーの値をラベルに表示する。
+        // 正解数(スコア)の値をラベルに表示する。
         Lb_Result.text = "Your Score: " + scoreCount.getScore().ToString();
 
         yield return new WaitForSeconds(1.0f);
