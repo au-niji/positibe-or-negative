@@ -531,6 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeText: {fileID: 1134716549}
+  time: 30
 --- !u!1 &136873575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,7 +2685,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u6B8B\u308A:XX"
+  m_Text: "\u6B8B\u308A\u6642\u9593"
 --- !u!222 &619598213
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4874,7 +4875,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0.000
+  m_Text: 
 --- !u!222 &1134716550
 CanvasRenderer:
   m_ObjectHideFlags: 0

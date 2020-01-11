@@ -13,14 +13,14 @@ public class Remaining : MonoBehaviour
     {
         //正解したときに減らします。
         _remaining--;
-        RemainingText.text = "残り:" + _remaining.ToString();
+        // RemainingText.text = "残り:" + _remaining.ToString();
     }
 
     public void ResetRemaining()
     {
         //ゲーム開始時にリセットすること
         _remaining = remaining;
-        RemainingText.text = "残り:" + _remaining.ToString();
+        // RemainingText.text = "残り:" + _remaining.ToString();
     }
 
     public int GetRemaining()
