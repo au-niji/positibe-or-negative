@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
         //設定した時間だけ経過したら、ゲームのロジックをスタートさせる。
         Main.SetActive(true);
         Title.SetActive(false);
+        Timer.ResetTimer();
         MainBtnMng.DisableMainButton(); //カウントダウン中はボタンを無効化
         StartCoroutine(CountDown());
     }
@@ -127,14 +128,15 @@ public class GameManager : MonoBehaviour
 
     void ClearCheck()
     {
-        //残り数が0だったら、ゲームクリアにする。
-        if(Remaining.GetRemaining() == 0)
+        // 時間が0秒になったら終了
+        if(Timer.GetTimer() <= 0)
         {
             Clear.SetActive(true);
-            Remaining.ResetRemaining();
+            Timer.ResetTimer();
+            // Timer.stopTime(true);
+            Debug.Log("Game Clear");
         }
     }
-
     public void GotoTitle()
     {
         //Title画面に移動する
