@@ -10,28 +10,37 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
 
     bool timer_switch;
-    float time;
+    public static int time = 30;
+    private int _time = time;
+    private float count;
     void Update()
     {
         if(timer_switch)
         {
-            time += Time.deltaTime;
-            TimeText.text = time.ToString("F3");
+            count += Time.deltaTime;
+            if(count >= 1.0f)
+            {
+                count = 0.0f;
+                time -= 1;
+            }
+            
+            TimeText.text = time.ToString();
         }
     }
     public void StartTimer()
     {
-        time = 0.0f;
+        time = _time;
         timer_switch = true;
     }
     public void ResetTimer()
     {
-        time = 0.0f;
-        TimeText.text = time.ToString("F3");
+        time = _time;
+        TimeText.text = time.ToString();
         timer_switch = false;
     }
-    public float GetTimer()
+    public int GetTimer()
     {
         return time;
     }
+
 }

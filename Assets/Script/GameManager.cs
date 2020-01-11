@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
         MainBtnMng.EnableMainButton();
 
         //タイマー起動
+        Timer.ResetTimer();
         Timer.StartTimer();
         //ボールのテキストをセット
         foreach (Ball Ball in BallsSC)
@@ -127,14 +128,15 @@ public class GameManager : MonoBehaviour
 
     void ClearCheck()
     {
-        //残り数が0だったら、ゲームクリアにする。
-        if(Remaining.GetRemaining() == 0)
+        // 時間が0秒になったら終了
+        if(Timer.GetTimer() <= 0)
         {
             Clear.SetActive(true);
-            Remaining.ResetRemaining();
+            Timer.ResetTimer();
+            // Timer.stopTime(true);
+            Debug.Log("Game Clear");
         }
     }
-
     public void GotoTitle()
     {
         //Title画面に移動する
