@@ -30,11 +30,11 @@ public class Ranking : MonoBehaviour
     // ランキングに表示するためのメソッド
     public void FetchTopRanker(Text label)
     {
-        int max = 6;
+        int max = 5;
         label.text = "";
 
         int count = 1;
-        for (; count < max; count++)
+        for (; count <= max; count++)
         {
             string playerName = "name";
             label.text += (count + ":" + playerName + "\n").ToString();
