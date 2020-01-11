@@ -7,11 +7,9 @@ public class Timer : MonoBehaviour
 {
     [SerializeField]
     private Text TimeText = default;
-    // Update is called once per frame
-
     bool timer_switch;
-    public static int time = 30;
-    private int _time = time;
+    public int time; // Unity側で設定する初期値が反映される
+    private int _time = 1;
     private float count;
     void Update()
     {
@@ -21,26 +19,25 @@ public class Timer : MonoBehaviour
             if(count >= 1.0f)
             {
                 count = 0.0f;
-                time -= 1;
+                _time -= 1;
             }
             
-            TimeText.text = time.ToString();
+            TimeText.text = _time.ToString();
         }
     }
     public void StartTimer()
     {
-        time = _time;
         timer_switch = true;
     }
     public void ResetTimer()
     {
-        time = _time;
-        TimeText.text = time.ToString();
+        _time = time;
+        TimeText.text = _time.ToString();
         timer_switch = false;
     }
     public int GetTimer()
     {
-        return time;
+        return _time;
     }
 
 }
