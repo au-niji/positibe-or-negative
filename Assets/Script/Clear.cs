@@ -17,7 +17,7 @@ public class Clear : MonoBehaviour
     [SerializeField]
     private Text Lb_Top5 = default;
     [SerializeField]
-    private Text Lb_Score = default;
+    private Text Lb_Result = default;
 
     [SerializeField]
     private GameManager GameManager = default;
@@ -34,7 +34,7 @@ public class Clear : MonoBehaviour
     public void OnEnable() 
     {
         //初期化
-        Lb_Score.text = "";
+        Lb_Result.text = "";
         Lb_Rank.text　= "";
         Lb_Top5.text = "";
         StartCoroutine(InitClearData());
@@ -42,16 +42,27 @@ public class Clear : MonoBehaviour
 
     IEnumerator InitClearData()
     {
-        // スコアの値をラベルに表示する。
-        Lb_Score.text = scoreCount.getScore().ToString();
+        //タイマーの値をラベルに表示する。
+        Lb_Result.text = "Your Score: " + scoreCount.getScore().ToString();
 
         yield return new WaitForSeconds(1.0f);
 
+        /*クリア画面に表示する処理を書く*/
+
+        //現在のランクをラベルにセットする
+        SetYourRanking(Lb_Rank);
+
         yield return new WaitForSeconds(1.0f);
+
+        /*トップ5まで表示する処理を書く*/
     }
 
-    void SetYourRanking(float yourtime,Text Lb_Rank)
+
+    void SetYourRanking(Text Lb_Rank)
     {
+        //ランキングに順位を設定します。
+        //件数取得成功
+        Lb_Rank.text = "RANK:" + "テスト順位"; // 自分よりスコアが上の人がn人いたら自分はn+1位
+        Ranking.FetchTopRanker(Lb_Top5);
     }
-
 }
