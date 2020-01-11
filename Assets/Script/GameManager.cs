@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject Clear = default;
     [SerializeField]
+    private MainButtonManager MainBtnMng = default;
+
+    [SerializeField]
     private InputField inputField = default;
 
     private AudioSource SE_Countdown;
@@ -48,6 +51,7 @@ public class GameManager : MonoBehaviour
         //設定した時間だけ経過したら、ゲームのロジックをスタートさせる。
         Main.SetActive(true);
         Title.SetActive(false);
+        MainBtnMng.DisableMainButton(); //カウントダウン中はボタンを無効化
         StartCoroutine(CountDown());
     }
 
@@ -85,6 +89,9 @@ public class GameManager : MonoBehaviour
         {
             BallsSC.Add(childTransform.GetComponent<Ball>());
         }
+
+        //ボタンを有効化
+        MainBtnMng.EnableMainButton();
 
         //タイマー起動
         Timer.StartTimer();
