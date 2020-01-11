@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
         //設定した時間だけ経過したら、ゲームのロジックをスタートさせる。
         Main.SetActive(true);
         Title.SetActive(false);
+        Timer.ResetTimer();
         MainBtnMng.DisableMainButton(); //カウントダウン中はボタンを無効化
         StartCoroutine(CountDown());
     }
@@ -94,7 +95,6 @@ public class GameManager : MonoBehaviour
         MainBtnMng.EnableMainButton();
 
         //タイマー起動
-        Timer.ResetTimer();
         Timer.StartTimer();
         //ボールのテキストをセット
         foreach (Ball Ball in BallsSC)
