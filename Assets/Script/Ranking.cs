@@ -14,66 +14,32 @@ public class Ranking : MonoBehaviour
     private Text Clear_Lb_Top5 = default;
     [SerializeField]
     private ScoreCount scoreCount = default;
+
+    // 名前とリザルトを使ってランキングに登録する処理を書く
     public void SaveRanking(string name, float time)
     {
-        //名前とタイムでランキングを登録します。
-        // NCMBObject PositiveOrNegative = new NCMBObject("PositiveOrNegative");
-        // PositiveOrNegative["name"] = name;
-        // PositiveOrNegative["time"] = time;
-        // データストアへの登録
-        // PositiveOrNegative.Save();
     }
 
+    // ランキングのトップ5を出力する処理を書く
     public void ShowTopRanker()
     {
-        //既に一度読み込んでいるなら、Clearの文字列を表示。
-        //まだ読み込んでないなら、データリストを読み込む
-        // if (!Rankupdate)
-        // {
-        //     FetchTopRanker(Rank_Lb_Top5);
-        //     FetchTopRanker(Clear_Lb_Top5);
-        // }
-        // else
-        // {
-        //     Rank_Lb_Top5.text = Clear_Lb_Top5.text;
-        // }
-
+        FetchTopRanker(Rank_Lb_Top5);
+        FetchTopRanker(Clear_Lb_Top5);
     }
 
+    // ランキングに表示するためのメソッド
     public void FetchTopRanker(Text label)
     {
-        //トップファイルを取得して、テキストオブジェクトに記載します。
+        int max = 5;
+        label.text = "";
 
-        // label.text = "";
-
-        // NCMBQuery<NCMBObject> query = new NCMBQuery<NCMBObject>("PositiveOrNegative");
-        // query.OrderByAscending("time");
-        // query.Limit = 5;
-        // query.Find((List<NCMBObject> objList, NCMBException e) =>
-        // {
-
-        //     if (e != null)
-        //     {
-        //         //検索失敗時の処理
-        //         Debug.Log("TOP5ランキングの取得に失敗しました。");
-        //         label.text = "failed Get Ranking";
-        //     }
-        //     else
-        //     {
-        //         //検索成功時の処理
-        //         int count = 1;
-        //         foreach (NCMBObject obj in objList)
-        //         {
-        //             //timerを xxx.xxx形式に整形する
-        //             float time = System.Convert.ToSingle(obj["time"]);
-        //             string t = time.ToString("F3").PadLeft(7,'0');
-        //             string n = string.Format("{0, -8}",System.Convert.ToString(obj["name"]));
-        //             label.text += (count + ":" + n + ":" + t + "\n").ToString();
-        //             count++;
-        //         }
-        //         Rankupdate = true;
-        //     }
-        // });
+        int count = 1;
+        for (; count <= max; count++)
+        {
+            string playerName = "name";
+            label.text += (count + ":" + playerName + "\n").ToString();
+        }
+        Rankupdate = true; 
     }
 
     private void OnEnable() 

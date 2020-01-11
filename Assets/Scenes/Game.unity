@@ -3559,7 +3559,7 @@ MonoBehaviour:
   Lb_Timer: {fileID: 0}
   Lb_Rank: {fileID: 667614762}
   Lb_Top5: {fileID: 303762760}
-  Lb_Score: {fileID: 710515381}
+  Lb_Result: {fileID: 710515381}
   GameManager: {fileID: 457555469}
   Ranking: {fileID: 1156178677}
   scoreCount: {fileID: 1316890482}
